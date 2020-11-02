@@ -12,8 +12,6 @@ namespace TMSA.PIZZARIA.Domain.Core.Models
             ValidationResult = new ValidationResult();
         }
 
-        public Guid Id { get; protected set; }
-
         public abstract bool EhValido();
         public ValidationResult ValidationResult { get; protected set; }
     }
