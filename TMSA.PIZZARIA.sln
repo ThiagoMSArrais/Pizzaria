@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMSA.PIZZARIA.Domain.Core",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSA.PIZZARIA.Cadastro.Data", "src\TMSA.PIZZARIA.Cadastro.Data\TMSA.PIZZARIA.Cadastro.Data.csproj", "{3A34CFA2-C565-4ABE-B4B6-CBC3C0DE09F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSA.PIZZARIA.Core.Infra.CrossCutting.IoC", "src\TMSA.PIZZARIA.Core.Infra.CrossCutting.IoC\TMSA.PIZZARIA.Core.Infra.CrossCutting.IoC.csproj", "{1D4F0446-DA5A-4CCC-8699-C5F967E039A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3A34CFA2-C565-4ABE-B4B6-CBC3C0DE09F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A34CFA2-C565-4ABE-B4B6-CBC3C0DE09F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A34CFA2-C565-4ABE-B4B6-CBC3C0DE09F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D4F0446-DA5A-4CCC-8699-C5F967E039A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D4F0446-DA5A-4CCC-8699-C5F967E039A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D4F0446-DA5A-4CCC-8699-C5F967E039A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D4F0446-DA5A-4CCC-8699-C5F967E039A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
