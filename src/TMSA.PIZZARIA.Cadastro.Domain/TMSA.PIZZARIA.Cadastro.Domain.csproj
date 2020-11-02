@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Clientes\Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TMSA.PIZZARIA.Domain.Core\TMSA.PIZZARIA.Domain.Core.csproj" />
+  </ItemGroup>
+
 </Project>
