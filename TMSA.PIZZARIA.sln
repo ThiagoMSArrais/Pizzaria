@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSA.PIZZARIA.Cadastro.Domain", "src\TMSA.PIZZARIA.Cadastro.Domain\TMSA.PIZZARIA.Cadastro.Domain.csproj", "{7B4043AB-8CB9-410F-A625-1E42A4775E9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMSA.PIZZARIA.Cadastro.Domain", "src\TMSA.PIZZARIA.Cadastro.Domain\TMSA.PIZZARIA.Cadastro.Domain.csproj", "{7B4043AB-8CB9-410F-A625-1E42A4775E9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSA.PIZZARIA.Domain.Core", "src\TMSA.PIZZARIA.Domain.Core\TMSA.PIZZARIA.Domain.Core.csproj", "{580141B4-4577-4E45-8555-FAB75D4C1E39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMSA.PIZZARIA.Domain.Core", "src\TMSA.PIZZARIA.Domain.Core\TMSA.PIZZARIA.Domain.Core.csproj", "{580141B4-4577-4E45-8555-FAB75D4C1E39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMSA.PIZZARIA.Cadastro.Data", "src\TMSA.PIZZARIA.Cadastro.Data\TMSA.PIZZARIA.Cadastro.Data.csproj", "{3A34CFA2-C565-4ABE-B4B6-CBC3C0DE09F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{580141B4-4577-4E45-8555-FAB75D4C1E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{580141B4-4577-4E45-8555-FAB75D4C1E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{580141B4-4577-4E45-8555-FAB75D4C1E39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A34CFA2-C565-4ABE-B4B6-CBC3C0DE09F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A34CFA2-C565-4ABE-B4B6-CBC3C0DE09F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A34CFA2-C565-4ABE-B4B6-CBC3C0DE09F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A34CFA2-C565-4ABE-B4B6-CBC3C0DE09F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
