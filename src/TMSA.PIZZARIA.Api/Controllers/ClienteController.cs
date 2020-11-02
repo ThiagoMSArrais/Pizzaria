@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using TMSA.PIZZARIA.Api.DTO;
+using TMSA.PIZZARIA.Cadastro.Domain.Clientes;
+using TMSA.PIZZARIA.Cadastro.Domain.Clientes.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,11 +13,23 @@ namespace TMSA.PIZZARIA.Api.Controllers
     [ApiController]
     public class ClienteController : ControllerBase
     {
+
+        private readonly IClienteServices _clienteServices;
+        private readonly IMapper _mapper;
+
+        public ClienteController(IClienteServices clienteServices,
+                                 IMapper mapper)
+        {
+            _clienteServices = clienteServices;
+            _mapper = mapper;
+        }
+
+
         // GET: api/<ClienteController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<ClienteDto> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _mapper.Map<IEnumerable<ClienteDto>>(_clienteServices.ObterClientes());
         }
 
         // GET api/<ClienteController>/5
