@@ -7,7 +7,7 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Clientes
     public class Endereco : Entity<Endereco>
     {
         public Endereco(
-            Guid id,
+            Guid idEndereco,
             string logradouro,
             string numero,
             string complemento,
@@ -16,7 +16,7 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Clientes
             string estado,
             string cep)
         {
-            Id = id;
+            IdEndereco = idEndereco;
             Logradouro = logradouro;
             Numero = numero;
             Complemento = complemento;
@@ -26,6 +26,7 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Clientes
             Cep = cep;
         }
 
+        public Guid IdEndereco { get; private set; }
         public string Logradouro { get; private set; }
         public string Numero { get; private set; }
         public string Complemento { get; private set; }
