@@ -9,9 +9,11 @@ namespace TMSA.PIZZARIA.Core.Infra.CrossCutting.IoC
     {
         public static void RegisterServices(IServiceCollection service)
         {
+            // Services
             service.AddScoped<IClienteServices, ClienteServices>();
 
-            service.AddScoped(IClienteRepository, ClienteRepository)
+            // Domain-Repository
+            service.AddScoped<IClienteRepository, ClienteRepository>();
         }
     }
 }

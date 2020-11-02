@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TMSA.PIZZARIA.Cadastro.Domain\TMSA.PIZZARIA.Cadastro.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
