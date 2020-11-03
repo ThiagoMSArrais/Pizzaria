@@ -31,8 +31,8 @@ namespace TMSA.PIZZARIA.Cadastro.Data.Repository
                                                                      $"DS_CIDADE = @Cidade," +
                                                                      $"DS_ESTADO = @Estado," +
                                                                      $"DS_CEP = @Cep " +
-                                             $"WHERE" +
-                                                                    $"ID_ENDERECO = @IdEndereco";
+                                             $"WHERE " +
+                                                                    $" ID_ENDERECO = @IdEndereco";
 
                 try
                 {
@@ -158,7 +158,7 @@ namespace TMSA.PIZZARIA.Cadastro.Data.Repository
                                                    ENDE.DS_BAIRRO AS Bairro,
                                                    ENDE.DS_CIDADE AS Cidade,
                                                    ENDE.DS_ESTADO AS Estado,
-                                                   ENDE.DS_CEP AS AS Cep
+                                                   ENDE.DS_CEP AS Cep
                                                    FROM
                                                            T_CLIENTE AS CLIE
                                                            JOIN T_ENDERECO AS ENDE
@@ -213,10 +213,10 @@ namespace TMSA.PIZZARIA.Cadastro.Data.Repository
                                                    ENDE.DS_BAIRRO AS Bairro,
                                                    ENDE.DS_CIDADE AS Cidade,
                                                    ENDE.DS_ESTADO AS Estado,
-                                                   ENDE.DS_CEP AS AS Cep
+                                                   ENDE.DS_CEP AS Cep
                                                    FROM
                                                            T_CLIENTE AS CLIE
-                                                           JOIN T_ENDERECO AS ENDE
+                                                           INNER JOIN T_ENDERECO AS ENDE
                                                            ON CLIE.ID_CLIENTE = ENDE.CD_CLIENTE
                                                    WHERE
                                                            CLIE.NU_TELEFONE = @Telefone";
@@ -268,10 +268,10 @@ namespace TMSA.PIZZARIA.Cadastro.Data.Repository
                                                    ENDE.DS_BAIRRO AS Bairro,
                                                    ENDE.DS_CIDADE AS Cidade,
                                                    ENDE.DS_ESTADO AS Estado,
-                                                   ENDE.DS_CEP AS AS Cep
+                                                   ENDE.DS_CEP AS Cep
                                                    FROM
                                                            T_CLIENTE AS CLIE
-                                                           JOIN T_ENDERECO AS ENDE
+                                                           INNER JOIN T_ENDERECO AS ENDE
                                                            ON CLIE.ID_CLIENTE = ENDE.CD_CLIENTE";
 
                 IEnumerable<Cliente> clientes = default(IEnumerable<Cliente>);
@@ -309,10 +309,10 @@ namespace TMSA.PIZZARIA.Cadastro.Data.Repository
             using (IDbConnection con = Connection)
             {
                 string sqlRemoverEndereco = @"DELETE FROM T_ENDERECO
-                                                WHERE ID_ENDERECO = @IdEndereco";
+                                                WHERE CD_CLIENTE = @IdCliente";
 
                 string sqlRemoverCliente = @"DELETE FROM T_CLIENTE
-                                                WHERE CD_CLIENTE = @IdCliente";
+                                                WHERE ID_CLIENTE = @IdCliente";
 
                 try
                 {
@@ -320,7 +320,7 @@ namespace TMSA.PIZZARIA.Cadastro.Data.Repository
                         con.Open();
 
                     DynamicParameters parametros = new DynamicParameters();
-                    parametros.Add("IdEndereco", idCliente, DbType.Guid, ParameterDirection.Input);
+                    parametros.Add("IdCliente", idCliente, DbType.Guid, ParameterDirection.Input);
 
                     con.Execute(sqlRemoverEndereco, param: parametros);
                     con.Execute(sqlRemoverCliente, param: parametros);
