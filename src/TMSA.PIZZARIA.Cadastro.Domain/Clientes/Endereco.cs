@@ -6,6 +6,11 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Clientes
 {
     public class Endereco : Entity<Endereco>
     {
+        public Endereco()
+        {
+
+        }
+
         public Endereco(
             Guid idEndereco,
             string logradouro,
