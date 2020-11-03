@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using TMSA.PIZZARIA.Api.AutoMapper;
 using TMSA.PIZZARIA.Core.Infra.CrossCutting.IoC;
 
@@ -29,7 +30,26 @@ namespace TMSA.PIZZARIA.Api
         {
             services.AddControllers();
 
+            services.AddApiVersioning();
+
             services.AddAutoMapperConfig();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Pizzaria API",
+                    Description = "API Service about Pizzaria",
+                    //TermsOfService = new Uri("https://example.com/terms"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Thiago Arrais",
+                        Email = "thiago.arrais@outlook.com",
+                        Url = new Uri("https://www.linkedin.com/in/thiago-moreira-de-souza-arrais-7bb36137/")
+                    }
+                });
+            });
 
             RegisterServices(services);
         }
@@ -47,6 +67,13 @@ namespace TMSA.PIZZARIA.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {
