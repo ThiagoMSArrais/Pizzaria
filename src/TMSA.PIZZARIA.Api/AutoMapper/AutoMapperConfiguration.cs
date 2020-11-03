@@ -9,8 +9,8 @@ namespace TMSA.PIZZARIA.Api.AutoMapper
     {
         public AutoMapperConfiguration()
         {
-            CreateMap<ClienteDto, Cliente>();
-            CreateMap<EnderecoDto, Endereco>();
+            CreateMap<ClienteDto, Cliente>().ReverseMap();
+            CreateMap<EnderecoDto, Endereco>().ReverseMap();
         }
     }
 
