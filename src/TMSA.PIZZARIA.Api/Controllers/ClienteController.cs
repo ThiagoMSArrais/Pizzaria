@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using TMSA.PIZZARIA.Api.DTO;
 using TMSA.PIZZARIA.Cadastro.Domain.Clientes;
@@ -9,7 +10,8 @@ using TMSA.PIZZARIA.Cadastro.Domain.Clientes.Interfaces;
 
 namespace TMSA.PIZZARIA.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class ClienteController : ControllerBase
     {
@@ -25,36 +27,39 @@ namespace TMSA.PIZZARIA.Api.Controllers
         }
 
 
-        // GET: api/<ClienteController>
+        // GET: api/V1.0/<ClienteController>
         [HttpGet]
-        public IEnumerable<ClienteDto> Get()
+        public IActionResult Get()
         {
-            return _mapper.Map<IEnumerable<ClienteDto>>(_clienteServices.ObterClientes());
+            return Ok(_mapper.Map<IEnumerable<ClienteDto>>(_clienteServices.ObterClientes()));
         }
 
-        // GET api/<ClienteController>/5
+        // GET api/V1.0/<ClienteController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(Guid id)
         {
-            return "value";
+            return Ok(_mapper.Map<ClienteDto>(_clienteServices.ObterClientePorId(id)));
         }
 
-        // POST api/<ClienteController>
+        // POST api/V1.0/<ClienteController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] ClienteDto cliente)
         {
+            _clienteServices.CadastrarCliente(_mapper.Map<Cliente>(cliente));
         }
 
-        // PUT api/<ClienteController>/5
+        // PUT api/V1.0/<ClienteController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put([FromBody] ClienteDto cliente)
         {
+            _clienteServices.AtualizarCliente(_mapper.Map<Cliente>(cliente));
         }
 
-        // DELETE api/<ClienteController>/5
+        // DELETE api/V1.0/<ClienteController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            _clienteServices.RemoverCliente(id);
         }
     }
 }
