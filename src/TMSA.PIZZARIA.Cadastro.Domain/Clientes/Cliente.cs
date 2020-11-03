@@ -6,12 +6,19 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Clientes
 {
     public class Cliente : Entity<Cliente>
     {
+
+        public Cliente()
+        {
+
+        }
+
         public Cliente(
+            Guid idCliente,
             string nome, 
             string telefone, 
             Endereco endereco)
         {
-            IdCliente = Guid.NewGuid();
+            IdCliente = idCliente;
             Nome = nome;
             Telefone = telefone;
             Endereco = endereco;
