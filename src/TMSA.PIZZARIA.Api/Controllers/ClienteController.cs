@@ -41,6 +41,13 @@ namespace TMSA.PIZZARIA.Api.Controllers
             return Ok(_mapper.Map<ClienteDto>(_clienteServices.ObterClientePorId(id)));
         }
 
+        [HttpGet]
+        [Route("ObterPorTelefone/{telefone}")]
+        public IActionResult ObterPorTelefone(string telefone)
+        {
+            return Ok(_mapper.Map<ClienteDto>(_clienteServices.ObterClientePorTelefone(telefone)));
+        }
+
         // POST api/V1.0/<ClienteController>
         [HttpPost]
         public void Post([FromBody] ClienteDto cliente)
