@@ -4,6 +4,11 @@ namespace TMSA.PIZZARIA.Api.DTO
 {
     public class EnderecoDto
     {
+        public EnderecoDto()
+        {
+            IdEndereco = Guid.NewGuid();
+        }
+
         public Guid IdEndereco { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }
