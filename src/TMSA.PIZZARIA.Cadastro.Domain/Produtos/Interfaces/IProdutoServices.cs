@@ -6,7 +6,7 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Produtos.Interfaces
     public interface IProdutoServices
     {
         void CadastrarProduto(Produto produto);
-        void AtualizarProduto(Produto prodto);
+        void AtualizarProduto(Produto produto);
         Produto ObterProdutoPorId(Guid idProduto);
         Produto ObterprodutoPorCategoria(Guid idCategoria);
         IEnumerable<Produto> ObterProdutos();

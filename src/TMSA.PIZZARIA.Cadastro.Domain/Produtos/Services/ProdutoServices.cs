@@ -6,59 +6,66 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Produtos.Services
 {
     public class ProdutoServices : IProdutoServices
     {
-        public void AtualizarCategoria(Categoria categoria)
+        private readonly IProdutoRepository _produtoRepository;
+
+        public ProdutoServices(IProdutoRepository produtoRepository)
         {
-            throw new NotImplementedException();
+            _produtoRepository = produtoRepository;
         }
 
-        public void AtualizarProduto(Produto prodto)
+        public void AtualizarCategoria(Categoria categoria)
         {
-            throw new NotImplementedException();
+            _produtoRepository.AtualizarCategoria(categoria);
+        }
+
+        public void AtualizarProduto(Produto produto)
+        {
+            _produtoRepository.AtualizarProduto(produto);
         }
 
         public void CadastrarCategoria(Categoria categoria)
         {
-            throw new NotImplementedException();
+            _produtoRepository.CadastrarCategoria(categoria);
         }
 
         public void CadastrarProduto(Produto produto)
         {
-            throw new NotImplementedException();
+            _produtoRepository.CadastrarProduto(produto);
         }
 
         public Categoria ObterCategoriaPorId(Guid idCategoria)
         {
-            throw new NotImplementedException();
+            return _produtoRepository.ObterCategoriaPorId(idCategoria);
         }
 
         public IEnumerable<Categoria> ObterCategorias()
         {
-            throw new NotImplementedException();
+            return _produtoRepository.ObterCategorias();
         }
 
         public Produto ObterprodutoPorCategoria(Guid idCategoria)
         {
-            throw new NotImplementedException();
+            return _produtoRepository.ObterprodutoPorCategoria(idCategoria);
         }
 
         public Produto ObterProdutoPorId(Guid idProduto)
         {
-            throw new NotImplementedException();
+            return _produtoRepository.ObterProdutoPorId(idProduto);
         }
 
         public IEnumerable<Produto> ObterProdutos()
         {
-            throw new NotImplementedException();
+            return _produtoRepository.ObterProdutos();
         }
 
         public void RemoverCategoria(Guid idCategoria)
         {
-            throw new NotImplementedException();
+            _produtoRepository.RemoverCategoria(idCategoria);
         }
 
         public void RemoverProduto(Guid idProduto)
         {
-            throw new NotImplementedException();
+            _produtoRepository.RemoverProduto(idProduto);
         }
     }
 }
