@@ -36,7 +36,9 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Produtos
         #region Validações
         private void Validar()
         {
-
+            ValidarNome();
+            ValidarDescricao();
+            ValidarPreco();
         }
 
         private void ValidarNome()
@@ -44,6 +46,15 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Produtos
             RuleFor(p => p.Nome)
                 .NotEmpty().WithMessage("Obrigatório um nome")
                 .Length(3, 50).WithMessage("Obrigatório no mínimo 3 caracteres a 50 caracteres.");
+        }
+
+        private void ValidarDescricao()
+        {
+            if (!string.IsNullOrEmpty(Descricao))
+            {
+                RuleFor(p => p.Descricao)
+                    .MaximumLength(100).WithMessage("Limite máximo 100 caracteres.");
+            }
         }
 
         private void ValidarPreco()
