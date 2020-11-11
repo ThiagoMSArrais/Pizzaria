@@ -6,6 +6,11 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Produtos
 {
     public class Categoria : Entity<Categoria>
     {
+        public Categoria()
+        {
+
+        }
+
         public Categoria(Guid idCategoria, string tipo)
         {
             IdCategoria = idCategoria;
