@@ -2,6 +2,8 @@
 using TMSA.PIZZARIA.Cadastro.Data.Repository;
 using TMSA.PIZZARIA.Cadastro.Domain.Clientes.Interfaces;
 using TMSA.PIZZARIA.Cadastro.Domain.Clientes.Services;
+using TMSA.PIZZARIA.Cadastro.Domain.Produtos.Interfaces;
+using TMSA.PIZZARIA.Cadastro.Domain.Produtos.Services;
 
 namespace TMSA.PIZZARIA.Core.Infra.CrossCutting.IoC
 {
@@ -11,9 +13,11 @@ namespace TMSA.PIZZARIA.Core.Infra.CrossCutting.IoC
         {
             // Services
             service.AddScoped<IClienteServices, ClienteServices>();
+            service.AddScoped<IProdutoServices, ProdutoServices>();
 
             // Domain-Repository
             service.AddScoped<IClienteRepository, ClienteRepository>();
+            service.AddScoped<IProdutoRepository, ProdutoRepository>();
         }
     }
 }
