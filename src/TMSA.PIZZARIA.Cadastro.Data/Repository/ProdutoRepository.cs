@@ -48,24 +48,86 @@ namespace TMSA.PIZZARIA.Cadastro.Data.Repository
             }
         }
 
-        public void AtualizarProduto(Produto prodto)
+        public void AtualizarProduto(Produto produto)
         {
-            throw new NotImplementedException();
+            using (IDbConnection con = Connection)
+            {
+                string sqlAtualizarProduto = $"UPDATE T_PRODUTO " +
+                                              "SET NM_PRODUTO = @NM_PRODUTO, " +
+                                              $"{(!string.IsNullOrEmpty(produto.Descricao) ? "DS_PRODUTO = @DS_PRODUTO, " : string.Empty)}" +
+                                                   "NU_QTD_PRODUTO = @NU_QTD_PRODUTO, " +
+                                                   "CD_CATEGORIA = @CD_CATEGORIA " +
+                                               "WHERE " +
+                                                   "ID_PRODUTO = @ID_PRODUTO";
+
+                DynamicParameters parametros = new DynamicParameters();
+
+                parametros.Add("ID_PRODUTO", produto.IdProduto, DbType.Guid, ParameterDirection.Input);
+                parametros.Add("NM_PRODUTO", produto.Nome, DbType.String, ParameterDirection.Input);
+                parametros.Add("NU_QTD_PRODUTO", produto.Quantidade, DbType.Int32, ParameterDirection.Input);
+                parametros.Add("CD_CATEGORIA", produto.Categoria.IdCategoria, DbType.Guid, ParameterDirection.Input);
+                if (!string.IsNullOrEmpty(produto.Descricao))
+                    parametros.Add("DS_PRODUTO", produto.Descricao, DbType.String, ParameterDirection.Input);
+
+                try
+                {
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+
+                    con.Execute(sql: sqlAtualizarProduto, param: parametros);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                    con.Dispose();
+                }
+            }
+
         }
 
         public void CadastrarCategoria(Categoria categoria)
         {
-            //string sqlCadastrarCategoria = $"INSERT INTO T_CATEGORIA" +
-            //                                   $"(" +
-            //                                       $"ID_CATEGORIA," +
-            //                                       $"DS_CATEGORIA " +
-            //                                   $")" +
-            //                                   $"VALUES " +
-            //                                   $"( " +
-            //                                       $"@ID_CATEGORIA," +
-            //                                       $"@DS_CATEGORIA " +
-            //                                   $")";
-            throw new NotImplementedException();
+            using (IDbConnection con = Connection)
+            {
+                string sqlCadastrarCategoria = $"INSERT INTO T_CATEGORIA" +
+                                                   $"(" +
+                                                       $"ID_CATEGORIA," +
+                                                       $"DS_CATEGORIA " +
+                                                   $")" +
+                                                   $"VALUES " +
+                                                   $"( " +
+                                                       $"@ID_CATEGORIA," +
+                                                       $"@DS_CATEGORIA " +
+                                                   $")";
+
+                DynamicParameters parametros = new DynamicParameters();
+
+                parametros.Add("ID_CATEGORIA", categoria.IdCategoria, DbType.Guid, ParameterDirection.Input);
+                parametros.Add("DS_CATEGORIA", categoria.Tipo, DbType.String, ParameterDirection.Input);
+
+                try
+                {
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+
+                    con.Execute(sql: sqlCadastrarCategoria, param: parametros);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                    con.Dispose();
+                }
+            }
         }
 
         public void CadastrarProduto(Produto produto)
@@ -142,7 +204,7 @@ namespace TMSA.PIZZARIA.Cadastro.Data.Repository
                     if (con.State == ConnectionState.Closed)
                         con.Open();
 
-                    categoria = con.QueryFirstOrDefault<Categoria>(sql: sqlObterCategorias, param: parametros);
+                    categoria = con.QueryFirstOrDefault<Categoria>(sql: sqlObterCategoriaPorId, param: parametros);
                 }
                 catch (Exception)
                 {
