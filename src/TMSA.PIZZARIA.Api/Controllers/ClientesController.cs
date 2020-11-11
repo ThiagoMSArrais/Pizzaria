@@ -6,20 +6,18 @@ using TMSA.PIZZARIA.Api.DTO;
 using TMSA.PIZZARIA.Cadastro.Domain.Clientes;
 using TMSA.PIZZARIA.Cadastro.Domain.Clientes.Interfaces;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace TMSA.PIZZARIA.Api.Controllers
 {
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    public class ClienteController : ControllerBase
+    public class ClientesController : ControllerBase
     {
 
         private readonly IClienteServices _clienteServices;
         private readonly IMapper _mapper;
 
-        public ClienteController(IClienteServices clienteServices,
+        public ClientesController(IClienteServices clienteServices,
                                  IMapper mapper)
         {
             _clienteServices = clienteServices;

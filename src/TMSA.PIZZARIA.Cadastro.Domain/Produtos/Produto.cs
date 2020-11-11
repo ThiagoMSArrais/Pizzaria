@@ -6,6 +6,11 @@ namespace TMSA.PIZZARIA.Cadastro.Domain.Produtos
 {
     public class Produto : Entity<Produto>
     {
+        public Produto()
+        {
+
+        }
+
         public Produto(Guid idProduto,
                        string nome,
                        string descricao,

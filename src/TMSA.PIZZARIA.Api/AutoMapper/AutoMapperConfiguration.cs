@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using TMSA.PIZZARIA.Api.DTO;
 using TMSA.PIZZARIA.Cadastro.Domain.Clientes;
+using TMSA.PIZZARIA.Cadastro.Domain.Produtos;
 
 namespace TMSA.PIZZARIA.Api.AutoMapper
 {
@@ -11,6 +12,8 @@ namespace TMSA.PIZZARIA.Api.AutoMapper
         {
             CreateMap<ClienteDto, Cliente>().ReverseMap();
             CreateMap<EnderecoDto, Endereco>().ReverseMap();
+            CreateMap<ProdutoDto, Produto>().ReverseMap();
+            CreateMap<CategoriaDto, Categoria>().ReverseMap();
         }
     }
 
